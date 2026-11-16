@@ -374,9 +374,9 @@ const pdfStatus=document.getElementById('pdfStatus');
 let imageExportBusy=false;
 // Offline, native Canvas renderer: no CDN or PDF dependencies.
 async function renderFormPng(){
- const canvas=document.createElement('canvas');canvas.width=1588;canvas.height=2246;
+ const canvas=document.createElement('canvas');canvas.width=2480;canvas.height=3508;
  const c=canvas.getContext('2d');if(!c)throw new Error('Canvas unavailable');
- c.scale(2,2);const W=794,H=1123;
+ c.scale(2480/794,3508/1123);const W=794,H=1123;
  function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(x,y,w,h)}
  function gradient(x,y,w,h,a,b){const g=c.createLinearGradient(x,y,x+w,y+h);g.addColorStop(0,a);g.addColorStop(1,b);return g}
  function pathRound(x,y,w,h,r){r=Array.isArray(r)?r[0]:r;r=Math.min(r,w/2,h/2);c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath()}
